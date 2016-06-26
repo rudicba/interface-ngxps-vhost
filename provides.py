@@ -3,7 +3,7 @@ from charms.reactive import RelationBase
 from charms.reactive import scopes
 
 
-class NginxPagespeedVhostProvides(RelationBase):
+class NgxpsVhostProvides(RelationBase):
     scope = scopes.UNIT
 
     def to_bool(self, value):
@@ -27,7 +27,7 @@ class NginxPagespeedVhostProvides(RelationBase):
         return True
 
     # Use some template magic to declare our relation(s)
-    @hook('{provides:nginx-pagespeed-vhost}-relation-{joined,changed}')
+    @hook('{provides:ngxps-vhost}-relation-{joined,changed}')
     def changed(self):
         conv = self.conversation()
         conv.set_state('{relation_name}.connected')
@@ -37,7 +37,7 @@ class NginxPagespeedVhostProvides(RelationBase):
         else:
             conv.remove_state('{relation_name}.available')
 
-    @hook('{provides:nginx-pagespeed-vhost}-relation-{broken,departed}')
+    @hook('{provides:ngxps-vhost}-relation-{broken,departed}')
     def broken(self):
         # Remove the state that our relationship is now available
         # to our principal layer(s)
