@@ -53,8 +53,12 @@ class NgxpsVhostProvides(RelationBase):
                 'listen': conv.get_remote('listen'),
                 'root': conv.get_remote('root'),
                 'RewriteLevel': conv.get_remote('RewriteLevel'),
-                'EnableFilters': self.to_list(conv.get_remote('EnableFilters')),
-                'LearningMode': self.to_bool(conv.get_remote('LearningMode')),
+                'EnableFilters': self.to_list(
+                    conv.get_remote('EnableFilters')
+                ),
+                'LearningMode': self.to_bool(
+                    conv.get_remote('LearningMode')
+                ),
             }
             contexts.append(context)
 
