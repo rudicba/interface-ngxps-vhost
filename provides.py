@@ -51,6 +51,7 @@ class NgxpsVhostProvides(RelationBase):
             context = {
                 'service_name': conv.scope.split('/')[0],
                 'listen': conv.get_remote('listen'),
+                'server_name': conv.get_remote('server_name'),
                 'root': conv.get_remote('root'),
                 'RewriteLevel': conv.get_remote('RewriteLevel'),
                 'EnableFilters': self.to_list(

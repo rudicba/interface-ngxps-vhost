@@ -15,10 +15,12 @@ class NgxpsVhostRequires(RelationBase):
         self.remove_state('{relation_name}.available')
 
     # Send relation data when site is ready
-    def configure(self, listen='80', root='', RewriteLevel='CoreFilters',
-                  EnableFilters='', LearningMode=False):
+    def configure(self, listen='80', server_name='', root='',
+                  RewriteLevel='CoreFilters', EnableFilters='',
+                  LearningMode=False):
         self.set_remote(
             listen=listen,
+            server_name=server_name,
             root=root,
             RewriteLevel=RewriteLevel,
             EnableFilters=EnableFilters,
