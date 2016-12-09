@@ -53,6 +53,9 @@ class NgxpsVhostProvides(RelationBase):
                 'listen': conv.get_remote('listen'),
                 'server_name': conv.get_remote('server_name'),
                 'root': conv.get_remote('root'),
+                'access_log': self.to_bool(
+                    conv.get_remote('access_log')
+                ),
                 'RewriteLevel': conv.get_remote('RewriteLevel'),
                 'EnableFilters': self.to_list(
                     conv.get_remote('EnableFilters')
